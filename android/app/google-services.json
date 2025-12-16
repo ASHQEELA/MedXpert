@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "605675947890",
+    "project_id": "medxpert-9a26f",
+    "storage_bucket": "medxpert-9a26f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605675947890:android:3602c87d263e6986a7ffeb",
+        "android_client_info": {
+          "package_name": "com.example.medxpert"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDixocQ48YAwoJN1idCpS2KMFMtMZ6hMys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
