@@ -42,7 +42,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
     messageController.clear();
 
-    // Auto-scroll to bottom
     Future.delayed(const Duration(milliseconds: 100), () {
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
@@ -67,9 +66,8 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F4F8), // Light grey chat background
+      backgroundColor: const Color(0xFFF2F4F8), 
 
-      /// 1. Modern AppBar with Profile
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1,
@@ -141,7 +139,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
       body: Column(
         children: [
-          /// 2. Messages List
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
@@ -158,7 +155,6 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
 
-          /// 3. Modern Input Area
           _modernChatInput(),
         ],
       ),
@@ -181,8 +177,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 borderRadius: BorderRadius.only(
                   topLeft: const Radius.circular(20),
                   topRight: const Radius.circular(20),
-                  bottomLeft: Radius.circular(isDoctor ? 0 : 20), // Tail effect
-                  bottomRight: Radius.circular(isDoctor ? 20 : 0), // Tail effect
+                  bottomLeft: Radius.circular(isDoctor ? 0 : 20),  
+                  bottomRight: Radius.circular(isDoctor ? 20 : 0), 
                 ),
                 boxShadow: [
                   BoxShadow(
@@ -231,7 +227,6 @@ class _ChatScreenState extends State<ChatScreen> {
       child: SafeArea(
         child: Row(
           children: [
-            /// Attach Button
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -243,7 +238,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
             const SizedBox(width: 12),
 
-            /// Text Field
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -264,7 +258,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
             const SizedBox(width: 12),
 
-            /// Send Button
             GestureDetector(
               onTap: sendMessage,
               child: CircleAvatar(
