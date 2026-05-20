@@ -68,7 +68,6 @@ class BloodDonorsScreen extends StatelessWidget {
       ),
       child: Row(
         children: [
-          /// Avatar
           CircleAvatar(
             radius: 28,
             backgroundColor: Colors.red.withOpacity(0.1),
@@ -81,7 +80,6 @@ class BloodDonorsScreen extends StatelessWidget {
 
           const SizedBox(width: 16),
 
-          /// Info
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +93,7 @@ class BloodDonorsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "📍 $location",
+                  "$location",
                   style: const TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 6),
@@ -107,7 +105,6 @@ class BloodDonorsScreen extends StatelessWidget {
             ),
           ),
 
-          /// Call Button
           IconButton(
             icon: const Icon(Icons.call, color: Colors.green),
             onPressed: () async {
