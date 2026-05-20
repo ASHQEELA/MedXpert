@@ -43,7 +43,6 @@ class MedXpertWelcomeScreen extends StatelessWidget {
             children: [
               const Spacer(),
 
-              /// Logo + App Name (ROW)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -78,7 +77,6 @@ class MedXpertWelcomeScreen extends StatelessWidget {
 
               const SizedBox(height: 48),
 
-              /// Continue Button
               SizedBox(
                 width: double.infinity,
                 height: 54,
@@ -112,7 +110,6 @@ class MedXpertWelcomeScreen extends StatelessWidget {
 
               const Spacer(),
 
-              /// Footer
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
