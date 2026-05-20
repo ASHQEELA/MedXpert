@@ -68,7 +68,6 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          /// 1. Top Image
           Positioned(
             top: 0,
             left: 0,
@@ -80,21 +79,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 'assets/img.png',
                 fit: BoxFit.cover,
                 errorBuilder: (c, o, s) => const Center(
-                  child: Icon(Icons.medical_services, size: 80, color: Color(0xFF1DA1F2)),
+                  child: Icon(
+                    Icons.medical_services,
+                    size: 80,
+                    color: Color(0xFF1DA1F2),
+                  ),
                 ),
               ),
             ),
           ),
-
-          /// 2. Login Card
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.72,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: 30,
+              ),
               decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(32),
+                ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -107,7 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    /// Header
                     const Text(
                       "Welcome Back",
                       style: TextStyle(
@@ -124,19 +129,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.grey.shade500,
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    /// Email Field
                     _modernInputField(
                       controller: emailController,
                       icon: Icons.email_outlined,
                       hint: "Email or Phone",
                     ),
-
                     const SizedBox(height: 16),
-
-                    /// Password Field
                     _modernInputField(
                       controller: passwordController,
                       icon: Icons.lock_outline,
@@ -144,22 +143,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       obscure: obscurePassword,
                       isPassword: true,
                     ),
-
-                    /// Forgot Password
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {},
                         child: Text(
                           "Forgot Password?",
-                          style: TextStyle(color: Colors.grey.shade600),
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                          ),
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
-                    /// Sign In Button (Filled Primary Color)
                     SizedBox(
                       width: double.infinity,
                       height: 56,
@@ -174,62 +170,87 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         onPressed: isLoading ? null : _signIn,
                         child: isLoading
-                            ? const CircularProgressIndicator(color: Colors.white)
+                            ? const CircularProgressIndicator(
+                                color: Colors.white,
+                              )
                             : const Text(
-                          "Sign In",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                                "Sign In",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    /// Social Login Divider
                     Row(
                       children: [
-                        Expanded(child: Divider(color: Colors.grey.shade300)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text("Or sign in with", style: TextStyle(color: Colors.grey.shade500)),
+                        Expanded(
+                          child: Divider(
+                            color: Colors.grey.shade300,
+                          ),
                         ),
-                        Expanded(child: Divider(color: Colors.grey.shade300)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                          ),
+                          child: Text(
+                            "Or sign in with",
+                            style: TextStyle(
+                              color: Colors.grey.shade500,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: Colors.grey.shade300,
+                          ),
+                        ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
-
-                    /// Social Icons (Placeholder)
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment:
+                          MainAxisAlignment.center,
                       children: [
-                        _socialButton(Icons.g_mobiledata, Colors.red), // Google
+                        _socialButton(
+                          Icons.g_mobiledata,
+                          Colors.red,
+                        ),
                         const SizedBox(width: 20),
-                        _socialButton(Icons.apple, Colors.black), // Apple
+                        _socialButton(
+                          Icons.apple,
+                          Colors.black,
+                        ),
                       ],
                     ),
-
                     const SizedBox(height: 30),
-
-                    /// Sign Up Link
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment:
+                          MainAxisAlignment.center,
                       children: [
-                        Text("Don't have an account? ", style: TextStyle(color: Colors.grey.shade600)),
+                        Text(
+                          "Don't have an account? ",
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (_) => const SignUpScreen()),
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    const SignUpScreen(),
+                              ),
                             );
                           },
                           child: const Text(
                             "Sign up",
                             style: TextStyle(
                               color: Color(0xFF1DA1F2),
-                              fontWeight: FontWeight.bold,
+                              fontWeight:
+                                  FontWeight.bold,
                             ),
                           ),
                         ),
@@ -245,7 +266,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  /// Modern Input Field Widget
   Widget _modernInputField({
     required TextEditingController controller,
     required IconData icon,
@@ -258,45 +278,68 @@ class _LoginScreenState extends State<LoginScreen> {
       obscureText: obscure,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: TextStyle(color: Colors.grey.shade400),
+        hintStyle: TextStyle(
+          color: Colors.grey.shade400,
+        ),
         filled: true,
-        fillColor: const Color(0xFFF5F7FA), // Light grey fill
-        prefixIcon: Icon(icon, color: Colors.grey.shade500),
+        fillColor: const Color(0xFFF5F7FA),
+        prefixIcon: Icon(
+          icon,
+          color: Colors.grey.shade500,
+        ),
         suffixIcon: isPassword
             ? IconButton(
-          icon: Icon(
-            obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-            color: Colors.grey.shade500,
-          ),
-          onPressed: () {
-            setState(() {
-              obscurePassword = !obscurePassword;
-            });
-          },
-        )
+                icon: Icon(
+                  obscure
+                      ? Icons.visibility_outlined
+                      : Icons
+                          .visibility_off_outlined,
+                  color: Colors.grey.shade500,
+                ),
+                onPressed: () {
+                  setState(() {
+                    obscurePassword =
+                        !obscurePassword;
+                  });
+                },
+              )
             : null,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none, // Removes the harsh border
+          borderRadius:
+              BorderRadius.circular(16),
+          borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Color(0xFF1DA1F2), width: 1.5),
+          borderRadius:
+              BorderRadius.circular(16),
+          borderSide: const BorderSide(
+            color: Color(0xFF1DA1F2),
+            width: 1.5,
+          ),
         ),
       ),
     );
   }
 
-  /// Helper for social buttons
-  Widget _socialButton(IconData icon, Color color) {
+  Widget _socialButton(
+    IconData icon,
+    Color color,
+  ) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade200),
-        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.grey.shade200,
+        ),
+        borderRadius:
+            BorderRadius.circular(12),
         color: Colors.white,
       ),
-      child: Icon(icon, color: color, size: 30),
+      child: Icon(
+        icon,
+        color: color,
+        size: 30,
+      ),
     );
   }
 }
