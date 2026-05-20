@@ -6,7 +6,6 @@ class PharmacyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 1. Define data cleanly (Name + Price)
     final List<Map<String, String>> medicines = [
       {"name": "Paracetamol", "price": "\$5.00", "desc": "Fever & Pain relief"},
       {"name": "Antibiotics", "price": "\$12.50", "desc": "Prescription only"},
@@ -92,7 +91,7 @@ class PharmacyScreen extends StatelessWidget {
         trailing: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF1DA1F2),
-            foregroundColor: Colors.white, // Forces white text
+            foregroundColor: Colors.white, 
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -102,7 +101,6 @@ class PharmacyScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                // Passing the name so the Cart knows what we bought
                 builder: (_) => PharmacyCartScreen(itemName: name, itemPrice: price),
               ),
             );
