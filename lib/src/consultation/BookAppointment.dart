@@ -35,7 +35,7 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FD), // Modern soft grey
+      backgroundColor: const Color(0xFFF8F9FD), 
       appBar: AppBar(
         title: const Text(
           "Book Appointment",
@@ -51,7 +51,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// 1. Doctor Selection
             _sectionTitle("Select Doctor"),
             Container(
               margin: const EdgeInsets.only(top: 12),
@@ -105,7 +104,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
 
             const SizedBox(height: 24),
 
-            /// 2. Date Selection
             _sectionTitle("Select Date"),
             GestureDetector(
               onTap: () async {
@@ -179,7 +177,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
 
             const SizedBox(height: 24),
 
-            /// 3. Time Slots
             _sectionTitle("Available Slots"),
             const SizedBox(height: 12),
             GridView.builder(
@@ -230,7 +227,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
 
             const SizedBox(height: 24),
 
-            /// 4. Reason Input
             _sectionTitle("Reason for Visit"),
             const SizedBox(height: 12),
             TextField(
@@ -251,7 +247,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
 
             const SizedBox(height: 40),
 
-            /// 5. Confirm Button
             SizedBox(
               width: double.infinity,
               height: 56,
@@ -280,7 +275,6 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
     );
   }
 
-  /// Helper for Date Formatting
   String _formatDate(DateTime date) {
     List<String> months = [
       "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -327,8 +321,8 @@ class _BookAppointmentScreenState extends State<BookAppointmentScreen> {
             width: double.infinity,
             child: TextButton(
               onPressed: () {
-                Navigator.pop(context); // Close dialog
-                Navigator.pop(context); // Go back to prev screen
+                Navigator.pop(context); 
+                Navigator.pop(context);
               },
               child: const Text("Back to Home", style: TextStyle(fontSize: 16)),
             ),
