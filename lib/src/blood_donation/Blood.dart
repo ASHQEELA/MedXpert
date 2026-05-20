@@ -122,7 +122,6 @@ class BloodScreen extends StatelessWidget {
     );
   }
 
-  /// UPDATED: Request Confirmation Dialog → Navigate
   void _showRequestDialog(BuildContext context, String type) {
     showDialog(
       context: context,
