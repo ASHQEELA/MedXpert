@@ -14,7 +14,6 @@ class _AmbulanceScreenState extends State<AmbulanceScreen> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    // Setup the pulsing animation for the map marker
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -51,15 +50,12 @@ class _AmbulanceScreenState extends State<AmbulanceScreen> with SingleTickerProv
       ),
       body: Stack(
         children: [
-          /// 1. Modern Map Background
           const _SimulatedMapBackground(),
 
-          /// 2. Animated Pulsing Marker
           Center(
             child: _PulsingMarker(controller: _controller),
           ),
 
-          /// 3. Bottom Floating Panel
           Align(
             alignment: Alignment.bottomCenter,
             child: _DraggableAmbulanceSheet(),
@@ -70,9 +66,6 @@ class _AmbulanceScreenState extends State<AmbulanceScreen> with SingleTickerProv
   }
 }
 
-// ---------------------------------------------------------------------------
-// SUB-WIDGETS (Modularized for readability)
-// ---------------------------------------------------------------------------
 
 class _DraggableAmbulanceSheet extends StatelessWidget {
   @override
@@ -94,7 +87,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 12),
-          // Drag Handle
           Container(
             width: 40,
             height: 4,
@@ -110,7 +102,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header: Status
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -149,7 +140,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
 
-                // Driver & Vehicle Card
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -159,14 +149,12 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      // Driver Avatar
                       CircleAvatar(
                         radius: 24,
                         backgroundColor: Colors.blue.shade100,
                         child: const Icon(Icons.person, color: Colors.blue),
                       ),
                       const SizedBox(width: 16),
-                      // Details
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,7 +174,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
                           ],
                         ),
                       ),
-                      // Rating
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
@@ -208,7 +195,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // Ambulance Type Selector (Horizontal Scroll)
                 SizedBox(
                   height: 90,
                   child: ListView(
@@ -237,7 +223,6 @@ class _DraggableAmbulanceSheet extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                // Emergency Button
                 Container(
                   width: double.infinity,
                   height: 56,
@@ -357,7 +342,6 @@ class _PulsingMarker extends StatelessWidget {
         return Stack(
           alignment: Alignment.center,
           children: [
-            // Outer ripple
             Container(
               width: 150 * controller.value,
               height: 150 * controller.value,
@@ -366,7 +350,6 @@ class _PulsingMarker extends StatelessWidget {
                 color: Colors.redAccent.withOpacity(0.3 * (1 - controller.value)),
               ),
             ),
-            // Inner ripple
             Container(
               width: 100 * controller.value,
               height: 100 * controller.value,
@@ -375,7 +358,6 @@ class _PulsingMarker extends StatelessWidget {
                 color: Colors.redAccent.withOpacity(0.5 * (1 - controller.value)),
               ),
             ),
-            // Solid center
             Container(
               width: 20,
               height: 20,
@@ -401,19 +383,17 @@ class _SimulatedMapBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFF2F5F8), // Lighter, modern map bg
+      color: const Color(0xFFF2F5F8), 
       width: double.infinity,
       height: double.infinity,
       child: Stack(
         children: [
-          // Simulated Roads
           Positioned(top: 150, left: 0, right: 0, child: Container(height: 15, color: Colors.white)),
           Positioned(top: 156, left: 0, right: 0, child: Divider(color: Colors.grey.shade300, thickness: 1)),
 
           Positioned(left: 120, top: 0, bottom: 0, child: Container(width: 15, color: Colors.white)),
           Positioned(left: 127, top: 0, bottom: 0, child: VerticalDivider(color: Colors.grey.shade300, thickness: 1)),
 
-          // Random Building Blocks
           Positioned(top: 50, left: 20, child: _MapBuilding(width: 60, height: 60)),
           Positioned(top: 200, right: 40, child: _MapBuilding(width: 80, height: 120)),
           Positioned(bottom: 300, left: 50, child: _MapBuilding(width: 100, height: 80)),
